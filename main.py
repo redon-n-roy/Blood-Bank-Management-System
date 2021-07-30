@@ -3,7 +3,7 @@ from os import system
 import otp_service
 import stdiomask as s
 from time import sleep
-import Project_0
+import user_menu
 Client = pymongo.MongoClient('mongodb://127.0.0.1:27017')
 blood_bank = Client['blood_bank']
 user = blood_bank.users
@@ -76,7 +76,7 @@ def login_menu():
             val = check_pwd()
             if(val == True):
                 if(otp_service.verify_phone()): # mob[1] to send otp to user mobile
-                    Project_0.menu(login_user['isAdmin'])
+                    user_menu.menu(login_user['isAdmin'])
                     login_menu()
                 else:
                     system('cls')
